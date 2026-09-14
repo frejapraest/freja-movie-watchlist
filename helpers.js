@@ -6,18 +6,21 @@ export const generateMovieCard = ({
   Genre,
   Plot,
 }) =>
-  `<div>
-        <img src="${Poster}"></img>
-        <div>
-            <div>
-                <h2>${Title}</h2>
-                <p>${imdbRating}</p>
+  `<div class="movie-with-line">
+        <div class="movie">
+            <img src="${Poster}"></img>
+            <div class="movie-information">
+                <div class="title-rating">
+                    <h3>${Title}</h2>
+                    <p>${imdbRating}</p>
+                </div>
+                <div class="runtime-genre-watchlist">
+                    <p>${Runtime}</p>
+                    <p>${Genre}</p>
+                    <button id="add-to-watchlist-btn">Watchlist</button>
+                </div>
+                <p>${Plot}</p>
             </div>
-            <div>
-                <p>${Runtime}</p>
-                <p>${Genre}</p>
-                <button id="add-to-watchlist-btn">Watchlist</button>
-            </div>
-            <p>${Plot}</p>
         </div>
+        <hr></hr>
     </div>`;

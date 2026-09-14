@@ -11,3 +11,18 @@ header {
   display: flex;
   justify-content: space-between;
 }
+
+.movies,
+movie-with-line {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie {
+  display: flex;
+}
+
+.title-rating,
+.runtime-genre-watchlist {
+  display: flex;
+}
