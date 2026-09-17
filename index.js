@@ -2,7 +2,7 @@ import { generateMovieCard } from "./helpers.js";
 
 const movieSearchEl = document.getElementById("movie-search");
 const searchButtonEl = document.getElementById("search-button");
-const moviesEl = document.getElementById("movies");
+const moviesContainerEl = document.getElementById("movies-container");
 
 async function handleMovieData() {
   const { Search: movieList } = await fetch(
@@ -17,7 +17,8 @@ async function handleMovieData() {
 
     moviesHtml += generateMovieCard(movie);
   }
-  moviesEl.innerHTML = moviesHtml;
+
+  moviesContainerEl.innerHTML = moviesHtml;
 }
 
 searchButtonEl.addEventListener("click", handleMovieData);

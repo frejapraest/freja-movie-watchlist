@@ -1,28 +1,134 @@
 :root {
+  --yellow: #fec654;
+}
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
-  margin: 0 2rem;
+  font-family: "Inter", sans-serif;
 }
 
 header {
+  background-image: url("THJJRUhNlEc.png");
+  height: 10rem;
+  position: relative;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.movies,
-movie-with-line {
+header,
+.search-container,
+main {
+  padding-inline: 25vw;
+}
+
+.search-container {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateY(50%);
+}
+
+.search {
+  border: 1px solid grey;
+  border-radius: 5px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  overflow: hidden;
+}
+
+.search:focus-within {
+  outline: 1px solid black;
+}
+
+.movie-search {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+}
+
+.grey {
+  color: grey;
+}
+
+.fa-magnifying-glass {
+  margin-inline: 0.5rem;
+}
+
+.yellow {
+  color: var(--yellow);
+}
+
+.add-to-watchlist-btn {
+  border: none;
+}
+
+.search-button {
+  width: 8rem;
+  border-radius: 0;
+  border: none;
+  border-left: 1px solid grey;
+  padding: 0.5rem 0.25rem;
+  transition:
+    background-color 0.25s,
+    color 0.25s;
+  outline: none;
+}
+
+.search-button:focus,
+.search-button:hover {
+  background-color: grey;
+  color: white;
+}
+
+.search-button:active {
+  background-color: rgb(93, 92, 92);
+  color: white;
+}
+
+.movies-container {
+  margin-top: 2rem;
 }
 
 .movie {
   display: flex;
+  height: 15rem;
+  margin: 2rem 0 2rem 0;
+}
+
+.movie-poster {
+  border-radius: 2px;
 }
 
 .title-rating,
 .runtime-genre-watchlist {
   display: flex;
+}
+
+.add-to-watchlist-btn {
+  background-color: white;
+}
+
+button {
+  cursor: pointer;
+}
+
+.runtime-genre-watchlist,
+.rating,
+.add-to-watchlist-btn {
+  font-size: 12px;
+}
+
+a,
+.plot,
+.search > *,
+.movie-search {
+  font-size: 14px;
 }
