@@ -1,13 +1,8 @@
-export const generateMovieCard = ({
-  Poster,
-  Title,
-  imdbRating,
-  Runtime,
-  Genre,
-  Plot,
-  imdbID,
-}) =>
-  `<div class="movie-with-line">
+export const generateMovieCard = (
+  { Poster, Title, imdbRating, Runtime, Genre, Plot, imdbID },
+  isSaved,
+) =>
+  `<div class="movie-with-line" id="${imdbID}">
         <div class="movie">
             <img class="movie-poster" src="${Poster}"></img>
             <div class="movie-information">
@@ -18,7 +13,12 @@ export const generateMovieCard = ({
                 <div class="runtime-genre-watchlist">
                     <p>${Runtime}</p>
                     <p>${Genre}</p>
-                    <button class="add-to-watchlist-btn" id="button-${imdbID}"><i class="fa-solid fa-circle-plus"></i>Watchlist</button>
+                    ${
+                      isSaved
+                        ? `<button class="remove-watchlist-btn" id="button-${imdbID}"><i class="fa-solid fa-circle-minus"></i></i>Remove</button>`
+                        : `<button class="add-to-watchlist-btn" id="button-${imdbID}"><i class="fa-solid fa-circle-plus"></i>Watchlist</button>`
+                    }
+                    
                 </div>
                 <p class="plot">${Plot}</p>
             </div>

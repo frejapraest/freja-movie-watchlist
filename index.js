@@ -9,16 +9,36 @@ async function handleMovieData() {
     `http://www.omdbapi.com/?apikey=546b0e9d&s=${movieSearchEl.value}&type=movie`,
   ).then((response) => response.json());
 
-  let moviesHtml = "";
   for (const { imdbID: movieId } of movieList) {
-    const movie = await fetch(
-      `http://www.omdbapi.com/?apikey=546b0e9d&i=${movieId}&type=movie`,
-    ).then((response) => response.json());
+    const { Poster, Title, imdbRating, Runtime, Genre, Plot, imdbID } =
+      await fetch(
+        `http://www.omdbapi.com/?apikey=546b0e9d&i=${movieId}&type=movie`,
+      ).then((response) => response.json());
 
-    moviesHtml += generateMovieCard(movie);
+    moviesContainerEl.insertAdjacentHTML(
+      "beforeend",
+      generateMovieCard(
+        { Poster, Title, imdbRating, Runtime, Genre, Plot, imdbID },
+        false,
+      ),
+    );
+    document
+      .getElementById(`button-${movieId}`)
+      .addEventListener("click", () => {
+        localStorage.setItem(
+          movieId,
+          JSON.stringify({
+            Poster,
+            Title,
+            imdbRating,
+            Runtime,
+            Genre,
+            Plot,
+            imdbID,
+          }),
+        );
+      });
   }
-
-  moviesContainerEl.innerHTML = moviesHtml;
 }
 
 searchButtonEl.addEventListener("click", handleMovieData);
