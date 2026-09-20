@@ -1,4 +1,4 @@
-:root {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -6,6 +6,9 @@
 
 body {
   font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 header {
@@ -14,4 +17,37 @@ header {
   align-items: center;
   background-image: url("background.png");
   height: 10rem;
+}
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+header,
+main {
+  padding-inline: 25vw;
+}
+
+.browse-movies-btn {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+.placeholder-container-watchlist {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  row-gap: 1rem;
+}
+
+.placeholder-container-watchlist > h2 {
+  color: grey;
 }
