@@ -1,7 +1,12 @@
+:root {
+  --yellow: #fec654;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  line-height: 1.5rem;
 }
 
 body {
@@ -16,7 +21,7 @@ header {
   justify-content: space-between;
   align-items: center;
   background-image: url("background.png");
-  height: 10rem;
+  min-height: 10rem;
 }
 main {
   flex-grow: 1;
@@ -50,4 +55,54 @@ a {
 
 .placeholder-container-watchlist > h2 {
   color: grey;
+}
+
+.hidden {
+  display: none;
+}
+
+.movies-container {
+  margin-top: 2rem;
+}
+
+.movie {
+  display: flex;
+  height: 15rem;
+  margin: 2rem 0 2rem 0;
+}
+
+.movie-poster {
+  border-radius: 2px;
+}
+
+.title-rating,
+.runtime-genre-watchlist {
+  display: flex;
+}
+
+.remove-watchlist-btn {
+  background-color: white;
+}
+
+.yellow {
+  color: var(--yellow);
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+.runtime-genre-watchlist,
+.rating,
+.remove-watchlist-btn {
+  font-size: 12px;
+}
+
+.remove-watchlist-btn {
+  border: none;
+}
+
+.plot {
+  color: #6b7280;
 }
