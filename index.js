@@ -10,6 +10,9 @@ async function handleMovieData() {
     `http://www.omdbapi.com/?apikey=546b0e9d&s=${movieSearchEl.value}&type=movie`,
   ).then((response) => response.json());
 
+  let movieHtml = "";
+  const moviesArray = [];
+
   for (const { imdbID: movieId } of movieList) {
     const { Poster, Title, imdbRating, Runtime, Genre, Plot, imdbID } =
       await fetch(
@@ -17,28 +20,30 @@ async function handleMovieData() {
       ).then((response) => response.json());
 
     placeholderContainer.classList.add("hidden");
-    moviesContainerEl.insertAdjacentHTML(
-      "beforeend",
-      generateMovieCard(
-        { Poster, Title, imdbRating, Runtime, Genre, Plot, imdbID },
-        false,
-      ),
+
+    moviesArray.push({
+      Poster,
+      Title,
+      imdbRating,
+      Runtime,
+      Genre,
+      Plot,
+      imdbID,
+    });
+
+    movieHtml += generateMovieCard(
+      { Poster, Title, imdbRating, Runtime, Genre, Plot, imdbID },
+      false,
     );
+  }
+
+  moviesContainerEl.innerHTML = movieHtml;
+
+  for (const movie of moviesArray) {
     document
-      .getElementById(`button-${movieId}`)
+      .getElementById(`button-${movie.imdbID}`)
       .addEventListener("click", () => {
-        localStorage.setItem(
-          movieId,
-          JSON.stringify({
-            Poster,
-            Title,
-            imdbRating,
-            Runtime,
-            Genre,
-            Plot,
-            imdbID,
-          }),
-        );
+        localStorage.setItem(movie.imdbID, JSON.stringify(movie));
       });
   }
 }
