@@ -4,7 +4,7 @@ export const generateMovieCard = (
 ) =>
   `<div class="movie-with-line" id="${imdbID}">
         <div class="movie">
-            <img class="movie-poster" src="${Poster}"></img>
+                <img class="movie-poster" src="${Poster}"></img>
             <div class="movie-information">
                 <div class="title-rating">
                     <h3>${Title}</h2>
@@ -15,8 +15,8 @@ export const generateMovieCard = (
                     <p>${Genre}</p>
                     ${
                       isSaved
-                        ? `<button class="remove-watchlist-btn" id="button-${imdbID}"><i class="fa-solid fa-circle-minus"></i></i>Remove</button>`
-                        : `<button class="add-to-watchlist-btn" id="button-${imdbID}"><i class="fa-solid fa-circle-plus"></i>Watchlist</button>`
+                        ? `<button class="remove-watchlist-btn" id="button-${imdbID}"><i class="fa-solid fa-circle-minus"></i>Remove</button>`
+                        : `<button class="add-to-watchlist-btn" id="button-${imdbID}"><i id="add-icon" class="fa-solid fa-circle-plus"></i>Watchlist</button>`
                     }
                     
                 </div>
