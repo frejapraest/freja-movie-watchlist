@@ -115,7 +115,8 @@ main {
 }
 
 .movie-poster {
-  border-radius: 2px;
+  border-radius: 3px;
+  width: 10rem;
 }
 
 .title-rating,
@@ -162,13 +163,21 @@ a {
   text-decoration: none;
 }
 
-.placeholder-container {
+.placeholder-container,
+.no-movie-results {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   flex-grow: 1;
+}
+
+.placeholder-container {
   row-gap: 10px;
+  flex-direction: column;
+}
+
+.no-movie-text {
+  color: grey;
 }
 
 main {
