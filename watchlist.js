@@ -17,7 +17,7 @@ for (const movie of Object.values(localStorage)) {
   const movieObj = JSON.parse(movie);
   watchlistEl.insertAdjacentHTML(
     "beforeend",
-    generateMovieCard(movieObj, true),
+    generateMovieCard(movieObj, true, false),
   );
 
   document

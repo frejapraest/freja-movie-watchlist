@@ -1,6 +1,7 @@
 export const generateMovieCard = (
   { Poster, Title, imdbRating, Runtime, Genre, Plot, imdbID },
   isSaved,
+  isCheckmarkVisible,
 ) =>
   `<div class="movie-with-line" id="${imdbID}">
         <div class="movie">
@@ -16,7 +17,7 @@ export const generateMovieCard = (
                     ${
                       isSaved
                         ? `<button class="remove-watchlist-btn" id="button-${imdbID}"><i class="fa-solid fa-circle-minus"></i>Remove</button>`
-                        : `<button class="add-to-watchlist-btn" id="button-${imdbID}"><i id="add-icon" class="fa-solid fa-circle-plus"></i>Watchlist</button>`
+                        : `<button class="add-to-watchlist-btn" id="button-${imdbID}"><i id="add-icon-${imdbID}" class="fa-solid ${isCheckmarkVisible ? "fa-circle-check" : "fa-circle-plus"}"></i>Watchlist</button>`
                     }
                     
                 </div>

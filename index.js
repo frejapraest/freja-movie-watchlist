@@ -42,6 +42,7 @@ async function handleMovieData() {
     movieHtml += generateMovieCard(
       { Poster, Title, imdbRating, Runtime, Genre, Plot, imdbID },
       false,
+      Boolean(localStorage.getItem(imdbID)),
     );
   }
   noMovieResultsEl.classList.add("hidden");
@@ -53,7 +54,7 @@ async function handleMovieData() {
       .addEventListener("click", () => {
         localStorage.setItem(movie.imdbID, JSON.stringify(movie));
         document
-          .getElementById("add-icon")
+          .getElementById(`add-icon-${movie.imdbID}`)
           .classList.replace("fa-circle-plus", "fa-circle-check");
       });
   }
