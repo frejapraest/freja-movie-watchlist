@@ -8,7 +8,7 @@ const noMovieResultsEl = document.getElementById("no-movie-results");
 
 async function handleMovieData() {
   const { Search: movieList } = await fetch(
-    `http://www.omdbapi.com/?apikey=546b0e9d&s=${movieSearchEl.value}&type=movie`,
+    `https://www.omdbapi.com/?apikey=546b0e9d&s=${movieSearchEl.value}&type=movie`,
   ).then((response) => response.json());
 
   if (movieList === undefined) {
@@ -24,7 +24,7 @@ async function handleMovieData() {
   for (const { imdbID: movieId } of movieList) {
     const { Poster, Title, imdbRating, Runtime, Genre, Plot, imdbID } =
       await fetch(
-        `http://www.omdbapi.com/?apikey=546b0e9d&i=${movieId}&type=movie`,
+        `https://www.omdbapi.com/?apikey=546b0e9d&i=${movieId}&type=movie`,
       ).then((response) => response.json());
 
     placeholderContainer.classList.add("hidden");
